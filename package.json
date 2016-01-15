@@ -1,0 +1,46 @@
+{
+  "name": "@nib-components/react-scale-slider",
+  "version": "0.1.0",
+  "description": "A react range input for choosing your scale",
+  "main": "index.js",
+  "dependencies": {
+    "@nib-styles/v2-icons": "^2.6.2",
+    "@nib-styles/v2-typography": "^3.0.2",
+    "classnames": "^2.2.0",
+    "invariant": "^2.2.0",
+    "react-addons-css-transition-group": "^0.14.3",
+    "react-testutils-query": "^0.5.0"
+  },
+  "devDependencies": {
+    "@nib-styles/react-form": "^0.1.0",
+    "babel": "^5.8.29",
+    "babelify": "^6.4.0",
+    "browserify": "^12.0.0",
+    "chai": "^3.4.1",
+    "chai-jsx": "^1.0.1",
+    "classnames": "^2.2.0",
+    "eslint": "^1.10.1",
+    "eslint-config-jameslnewell": "^0.3.2",
+    "jsx-chai": "^2.0.0",
+    "mocha": "^2.3.4",
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3",
+    "react-dom": "^0.14.0",
+    "react-testutils-query": "^0.4.3",
+    "react-testutils-render": "^0.1.2",
+    "sass-composer": "^2.0.0-beta12",
+    "watchify": "^3.5.0"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0"
+  },
+  "scripts": {
+    "test": "mocha --recursive --compilers jsx:babel/register --require test/boot.js",
+    "build": "babel ./index.jsx -d ./dist --source-maps",
+    "example.scripts.build": "browserify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
+    "example.scripts.watch": "watchify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
+    "example.styles.build": "sass-composer index.scss -o example/index.bundled.css",
+    "example.styles.watch": "sass-composer --watch index.scss -o example/index.bundled.css",
+    "example.build": "npm run build && npm run example.scripts.build && npm run example.styles.build"
+  }
+}
