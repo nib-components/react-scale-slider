@@ -2,7 +2,7 @@
   "name": "@nib-components/react-scale-slider",
   "version": "0.1.0",
   "description": "A react range input for choosing your scale",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "dependencies": {
     "@nib-styles/v2-icons": "^2.6.2",
     "@nib-styles/v2-typography": "^3.0.2",
@@ -29,6 +29,8 @@
     "react-testutils-query": "^0.4.3",
     "react-testutils-render": "^0.1.2",
     "sass-composer": "^2.0.0-beta12",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
     "watchify": "^3.5.0"
   },
   "peerDependencies": {
@@ -41,6 +43,7 @@
     "example.scripts.watch": "watchify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
     "example.styles.build": "sass-composer index.scss -o example/index.bundled.css",
     "example.styles.watch": "sass-composer --watch index.scss -o example/index.bundled.css",
-    "example.build": "npm run build && npm run example.scripts.build && npm run example.styles.build"
+    "example.build": "npm run build && npm run example.scripts.build && npm run example.styles.build",
+    "prepublish": "npm run build"
   }
 }

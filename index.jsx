@@ -25,7 +25,12 @@ export default class ScaleSlider extends React.Component {
   handleClick(event) {
     const index = event.target.id;
     this.props.onChange(Object.keys(options)[index]);
-    this.refs.scaleInput.focus();
+
+    //refs not available when shallow rendering
+    if (this.refs.scaleInput) {
+      this.refs.scaleInput.focus();
+    }
+
   }
 
   render() {
@@ -57,7 +62,7 @@ export default class ScaleSlider extends React.Component {
           id="scale"
           type="range"
           min={0}
-          max={Object.keys(options).length - 1}
+          max={3}
           step='1'
           value={index}
           onChange={this.handleChange}
@@ -78,11 +83,11 @@ export default class ScaleSlider extends React.Component {
 }
 
 ScaleSlider.propTypes = {
-  value: React.PropTypes.string.isRequired,
+  value: React.PropTypes.string,
   onChange: React.PropTypes.func,
   onClick: React.PropTypes.func
 };
 
-ScaleSlider.defaultPropTypes = {
+ScaleSlider.defaultProps = {
   value: 'single'
 };

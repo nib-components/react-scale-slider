@@ -52,7 +52,11 @@ var ScaleSlider = (function (_React$Component) {
     value: function handleClick(event) {
       var index = event.target.id;
       this.props.onChange(Object.keys(options)[index]);
-      this.refs.scaleInput.focus();
+
+      //refs not available when shallow rendering
+      if (this.refs.scaleInput) {
+        this.refs.scaleInput.focus();
+      }
     }
   }, {
     key: 'render',
@@ -96,7 +100,7 @@ var ScaleSlider = (function (_React$Component) {
           id: 'scale',
           type: 'range',
           min: 0,
-          max: Object.keys(options).length - 1,
+          max: 3,
           step: '1',
           value: index,
           onChange: this.handleChange,
@@ -122,12 +126,12 @@ var ScaleSlider = (function (_React$Component) {
 exports['default'] = ScaleSlider;
 
 ScaleSlider.propTypes = {
-  value: _react2['default'].PropTypes.string.isRequired,
+  value: _react2['default'].PropTypes.string,
   onChange: _react2['default'].PropTypes.func,
   onClick: _react2['default'].PropTypes.func
 };
 
-ScaleSlider.defaultPropTypes = {
+ScaleSlider.defaultProps = {
   value: 'single'
 };
 module.exports = exports['default'];
