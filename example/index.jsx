@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ScaleSlider from '../dist';
+import ScaleSlider from '../index.jsx';
 
 const state = {
   scale: 'single'
