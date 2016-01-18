@@ -84,10 +84,10 @@ export default class ScaleSlider extends React.Component {
 
 ScaleSlider.propTypes = {
   value: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onClick: React.PropTypes.func
+  onChange: React.PropTypes.func
 };
 
 ScaleSlider.defaultProps = {
-  value: 'single'
+  value: 'single',
+  onChange: () => {/*do nothing*/}
 };

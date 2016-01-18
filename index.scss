@@ -1,18 +1,46 @@
 @import '@nib-styles/v2-typography/index';
 @import '@nib-styles/v2-typography/compiled';
 @import '@nib-styles/v2-icons';
+@import '@nib-styles/colors';
 
 .scale-slider {
-  background: #eee;
-  padding: 20px;
+  background: $color-sneezy;
+  padding: 30px;
 }
+
+// Scale Icons List
+
+.scale-slider__icons {
+  display: flex;
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+  list-style: none;
+}
+
+.scale-slider__icon-holder {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  color: $color-grumpy;
+  font-size: 14px;
+}
+
+.scale-slider__icon {
+  cursor: pointer;
+}
+
+// Scale Range Slider Input
 
 .scale-slider__input {
   -webkit-appearance: none;
   margin: 10px 0 20px;
-  width: 100%;
+  width: 75%;
+  padding: 0 12.5%;
+  background: transparent;
 
   &:focus {
+    background: none;
     outline: none;
   }
 }
@@ -21,38 +49,26 @@
   width: 100%;
   height: 2px;
   cursor: pointer;
-  background: #888;
+  background: $color-grumpy;
   border-radius: 25px;
   padding: 0;
 }
 
 @mixin scale-slider__thumb {
-  height: 15px;
-  width: 25%;
-  background: transparent;
+  height: 12px;
+  width: 16px;
+  background: $color-queen-elizabeth;
   cursor: pointer;
   margin-top: -4px;
   position: relative;
 
-  &:before,
-  &:after {
+  &:before {
     content: '';
     display: block;
     position: absolute;
-    left: 50%;
-    margin-left: -8px;
-  }
-
-  &:before {
     top: -16px;
     border: 8px solid transparent;
-    border-bottom-color: #009623;
-  }
-  &:after {
-    top: 0;
-    width: 16px;
-    height: 12px;
-    background-color: #009623;
+    border-bottom-color: $color-queen-elizabeth;
   }
 }
 
@@ -67,6 +83,10 @@
 
 .scale-slider__input::-ms-track {
   @include scale-slider__track;
+  background: transparent;
+  border-color: transparent;
+  border-width: 6px 0;
+  color: transparent;
 }
 
 .scale-slider__input::-webkit-slider-thumb {
@@ -76,40 +96,39 @@
 
 .scale-slider__input::-moz-range-thumb {
   @include scale-slider__thumb;
+
+  background-color: $color-queen-elizabeth;
+  border: none;
+  border-radius: 2px;
 }
 
 .scale-slider__input::-ms-thumb {
-  @include scale-slider__thumb;
+  height: 14px;
+  width: 14px;
+  display: block;
+  background-color: $color-queen-elizabeth;
+  border: none;
+  border-radius: 2px;
 }
 
-.scale-slider__icons {
-  display: flex;
-  margin: 0 0 10px 0;
-  padding: 0;
-  list-style: none;
+// Extra browser specific hackiness
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
 }
 
-.scale-slider__icon-holder {
-  position: relative;
-  display: inline-block;
-  width: 25%;
-  text-align: center;
-  color: #888;
-  font-size: 14px;
+input[type="range"]::-ms-fill-upper {
+  background-color: $color-happy;
+}
+input[type="range"]::-ms-fill-lower {
+  background-color: $color-grumpy;
 }
 
-.scale-slider__icon {
-  cursor: pointer;
-}
+// Label below input
 
 .scale-slider__label {
   @include copy;
   display: block;
   text-align: center;
   text-transform: uppercase;
-}
-
-body {
-  padding: 30px;
-  box-sizing: border-box;
 }

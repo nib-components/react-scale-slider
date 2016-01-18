@@ -1,24 +1,21 @@
 {
   "name": "@nib-components/react-scale-slider",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A react range input for choosing your scale",
   "main": "./dist/index.js",
   "dependencies": {
+    "@nib-styles/colors": "^1.1.1",
     "@nib-styles/v2-icons": "^2.6.2",
     "@nib-styles/v2-typography": "^3.0.2",
-    "classnames": "^2.2.0",
     "invariant": "^2.2.0",
-    "react-addons-css-transition-group": "^0.14.3",
-    "react-testutils-query": "^0.5.0"
+    "react-addons-css-transition-group": "^0.14.3"
   },
   "devDependencies": {
-    "@nib-styles/react-form": "^0.1.0",
     "babel": "^5.8.29",
     "babelify": "^6.4.0",
     "browserify": "^12.0.0",
     "chai": "^3.4.1",
     "chai-jsx": "^1.0.1",
-    "classnames": "^2.2.0",
     "eslint": "^1.10.1",
     "eslint-config-jameslnewell": "^0.3.2",
     "jsx-chai": "^2.0.0",
@@ -39,6 +36,7 @@
   "scripts": {
     "test": "mocha --recursive --compilers jsx:babel/register --require test/boot.js",
     "build": "babel ./index.jsx -d ./dist --source-maps",
+    "watch": "babel ./index.jsx -d ./dist --source-maps --watch",
     "example.scripts.build": "browserify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
     "example.scripts.watch": "watchify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
     "example.styles.build": "sass-composer index.scss -o example/index.bundled.css",
