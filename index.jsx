@@ -34,7 +34,7 @@ export default class ScaleSlider extends React.Component {
   }
 
   render() {
-    const {value} = this.props;
+    const {value, onFocus, onBlur, autoFocus} = this.props;
     const index = Object.keys(options).indexOf(value);
 
     //throw an error if value is not a valid option
@@ -66,7 +66,9 @@ export default class ScaleSlider extends React.Component {
           step='1'
           value={index}
           onChange={this.handleChange}
-          autoFocus
+          onFocus={onFocus}
+          onBlur={onBlur}
+          autoFocus={autoFocus}
           ref="scaleInput"
         />
 
