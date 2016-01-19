@@ -10,7 +10,7 @@ describe('ScaleSlider', () => {
 
       component.handleChange({target: {value: 3}});
 
-      expect(onChange).to.be.calledWith('singleParentFamily');
+      expect(onChange).to.be.calledWith('SingleParentFamily');
     });
 
   });
@@ -23,7 +23,7 @@ describe('ScaleSlider', () => {
 
       component.handleClick({target: {id: 1}});
 
-      expect(onChange).to.be.calledWith('couple');
+      expect(onChange).to.be.calledWith('Couple');
     });
 
   });
@@ -31,22 +31,22 @@ describe('ScaleSlider', () => {
   describe('.render()', () => {
 
     it('should render the scale slider with the correct label text when single', () => {
-      const element = render(<ScaleSlider value="single" />).element;
+      const element = render(<ScaleSlider value="Single" />).element;
       expect($(element).find('#label').hasText(' Me ')).to.be.true;
     });
 
     it('should render the scale slider with the correct label text when couple', () => {
-      const element = render(<ScaleSlider value="couple" />).element;
+      const element = render(<ScaleSlider value="Couple" />).element;
       expect($(element).find('#label').hasText(' Me and my partner ')).to.be.true;
     });
 
     it('should map single scale string to 0 index', () => {
-      const rendered = render(<ScaleSlider value="single" />);
+      const rendered = render(<ScaleSlider value="Single" />);
       expect($(rendered.element).find('input').hasProp('value', 0)).to.be.true;
     });
 
     it('should map single scale string to 1 index', () => {
-      const rendered = render(<ScaleSlider value="couple" />);
+      const rendered = render(<ScaleSlider value="Couple" />);
       expect($(rendered.element).find('input').hasProp('value', 1)).to.be.true;
     });
 

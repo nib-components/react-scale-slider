@@ -2,10 +2,10 @@ import React from 'react';
 import invariant from 'invariant';
 
 const options = {
-  'single': 'Me',
-  'couple': 'Me and my partner',
-  'family': 'Me, my partner and our kids',
-  'singleParentFamily': 'Me and my kids'
+  'Single': 'Me',
+  'Couple': 'Me and my partner',
+  'Family': 'Me, my partner and our kids',
+  'SingleParentFamily': 'Me and my kids'
 };
 
 export default class ScaleSlider extends React.Component {
@@ -88,6 +88,6 @@ ScaleSlider.propTypes = {
 };
 
 ScaleSlider.defaultProps = {
-  value: 'single',
+  value: 'Single',
   onChange: () => {/*do nothing*/}
 };
