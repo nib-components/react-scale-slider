@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import ScaleSlider from '../index.jsx';
 
 const state = {
-  scale: 'single'
+  scale: 'Single'
 };
 
 function render() {
   ReactDOM.render(
-    <ScaleSlider onChange={handleChange} value={state.scale} />,
+    <ScaleSlider onChange={handleChange} value={state.scale} autoFocus />,
     document.querySelector('#app')
   );
 }

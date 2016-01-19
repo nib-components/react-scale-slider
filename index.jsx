@@ -30,7 +30,6 @@ export default class ScaleSlider extends React.Component {
     if (this.refs.scaleInput) {
       this.refs.scaleInput.focus();
     }
-
   }
 
   render() {
