@@ -32,12 +32,12 @@ describe('ScaleSlider', () => {
 
     it('should render the scale slider with the correct label text when single', () => {
       const element = render(<ScaleSlider value="Single" />).element;
-      expect($(element).find('#label').hasText(' Me ')).to.be.true;
+      expect($(element).find('#label').hasText('Me')).to.be.true;
     });
 
     it('should render the scale slider with the correct label text when couple', () => {
       const element = render(<ScaleSlider value="Couple" />).element;
-      expect($(element).find('#label').hasText(' Me and my partner ')).to.be.true;
+      expect($(element).find('#label').hasText('My partner and me')).to.be.true;
     });
 
     it('should map single scale string to 0 index', () => {

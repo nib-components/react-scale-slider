@@ -3,9 +3,9 @@ import invariant from 'invariant';
 
 const options = {
   'Single': 'Me',
-  'Couple': 'Me and my partner',
-  'Family': 'Me, my partner and our kids',
-  'SingleParentFamily': 'Me and my kids'
+  'Couple': 'My partner and me',
+  'Family': 'My partner, our kids and me',
+  'SingleParentFamily': 'My kids and me'
 };
 
 export default class ScaleSlider extends React.Component {
