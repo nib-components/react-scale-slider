@@ -33,7 +33,7 @@ export default class ScaleSlider extends React.Component {
   }
 
   render() {
-    const {value, onFocus, onBlur, autoFocus} = this.props;
+    const {value, onFocus, onBlur, autoFocus, ...otherProps} = this.props;
     const index = Object.keys(options).indexOf(value);
 
     //throw an error if value is not a valid option
@@ -69,7 +69,7 @@ export default class ScaleSlider extends React.Component {
           onBlur={onBlur}
           autoFocus={autoFocus}
           ref="scaleInput"
-          {...this.props}
+          {...otherProps}
         />
 
         <label

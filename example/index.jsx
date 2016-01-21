@@ -8,7 +8,7 @@ const state = {
 
 function render() {
   ReactDOM.render(
-    <ScaleSlider onChange={handleChange} value={state.scale} autoFocus />,
+    <ScaleSlider onChange={handleChange} value={state.scale} autoFocus data-test="scale" />,
     document.querySelector('#app')
   );
 }
