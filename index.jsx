@@ -69,7 +69,7 @@ export default class ScaleSlider extends React.Component {
           onBlur={onBlur}
           autoFocus={autoFocus}
           ref="scaleInput"
-          {...props}
+          {...this.props}
         />
 
         <label
