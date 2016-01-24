@@ -38,8 +38,6 @@ export default class ScaleSlider extends React.Component {
 
     //throw an error if value is not a valid option
     invariant(index !== -1, `Invalid value "${value}"`);
-    
-    otherProps.push(`selection="${value}"`);
 
     return (
       <div className="scale-slider">
