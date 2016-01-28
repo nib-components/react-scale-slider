@@ -57,6 +57,7 @@ export default class ScaleSlider extends React.Component {
         </ul>
 
         <input
+          {...otherProps}
           className="scale-slider__input"
           id="scale"
           type="range"
@@ -69,7 +70,6 @@ export default class ScaleSlider extends React.Component {
           onBlur={onBlur}
           autoFocus={autoFocus}
           ref="scaleInput"
-          {...otherProps}
         />
 
         <label

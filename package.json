@@ -1,6 +1,6 @@
 {
   "name": "@nib-components/react-scale-slider",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "A react range input for choosing your scale",
   "main": "./dist/index.js",
   "dependencies": {
