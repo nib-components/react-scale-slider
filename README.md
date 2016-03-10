@@ -2,6 +2,8 @@
 
 An html range input for choosing your scale.
 
+> There are some known UX issues on mobile (and maybe desktop)... Probably don't use this!
+
 ## Installation
 
     npm install --save @nib-components/react-scale-slider
