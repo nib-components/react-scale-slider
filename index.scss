@@ -1,5 +1,4 @@
-@import '@nib-styles/v2-typography/index';
-@import '@nib-styles/v2-typography/compiled';
+@import '@nib-styles/v2-typography';
 @import '@nib-styles/v2-icons';
 @import '@nib-styles/colors';
 
@@ -127,7 +126,7 @@ input[type="range"]::-ms-fill-lower {
 // Label below input
 
 .scale-slider__label {
-  @include copy;
+  @include copy($color: 'grey');
   display: block;
   text-align: center;
   text-transform: uppercase;
