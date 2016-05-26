@@ -1,11 +1,11 @@
 {
   "name": "@nib-components/react-scale-slider",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A react range input for choosing your scale",
   "main": "./dist/index.js",
   "dependencies": {
     "@nib-styles/colors": "^1.1.1",
-    "@nib-styles/v2-icons": "^2.6.2",
+    "@nib-styles/v2-icons": "^2.7.0",
     "@nib-styles/v2-typography": "^4.0.1",
     "invariant": "^2.2.0",
     "react-addons-css-transition-group": "^0.14.3"
