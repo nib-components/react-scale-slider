@@ -31,7 +31,7 @@
     "watchify": "^3.5.0"
   },
   "peerDependencies": {
-    "react": ">=0.14.0"
+    "react": "^0.14.0 || ^15.0.0"
   },
   "scripts": {
     "test": "mocha --recursive --compilers jsx:babel/register --require test/boot.js",
