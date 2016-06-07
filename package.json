@@ -1,6 +1,6 @@
 {
   "name": "@nib-components/react-scale-slider",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A react range input for choosing your scale",
   "main": "./dist/index.js",
   "dependencies": {
@@ -8,7 +8,7 @@
     "@nib-styles/v2-icons": "^2.7.0",
     "@nib-styles/v2-typography": "^4.0.1",
     "invariant": "^2.2.0",
-    "react-addons-css-transition-group": "^0.14.3"
+    "react-addons-css-transition-group": "^0.14.0 || ^15.1.0"
   },
   "devDependencies": {
     "babel": "^5.8.29",
@@ -20,8 +20,8 @@
     "eslint-config-jameslnewell": "^0.3.2",
     "jsx-chai": "^2.0.0",
     "mocha": "^2.3.4",
-    "react": "^0.14.3",
-    "react-addons-test-utils": "^0.14.3",
+    "react": "^15.0.0",
+    "react-addons-test-utils": "^15.0.0",
     "react-dom": "^0.14.0",
     "react-testutils-query": "^0.4.3",
     "react-testutils-render": "^0.1.2",
