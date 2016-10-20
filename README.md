@@ -21,3 +21,9 @@ import ScaleSlider from '@nib-components/react-scale-slider';
 #### Properties
 
 - value - single (default), couple, family, singleParentFamily
+
+## Change log
+
+### 0.3.4
+
+- fix: use icon mixins to save including the full v2-icons css

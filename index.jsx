@@ -43,16 +43,16 @@ export default class ScaleSlider extends React.Component {
       <div className="scale-slider">
         <ul className="scale-slider__icons">
           <li className="scale-slider__icon-holder" >
-            <i className="scale-slider__icon v2-icon v2-icon--small v2-icon--single" id="0" name="single" onClick={this.handleClick} />
+            <i className="scale-slider__icon scale-slider__icon--single v2-icon v2-icon--small v2-icon--single" id="0" name="single" onClick={this.handleClick} />
           </li>
           <li className="scale-slider__icon-holder">
-            <i className="scale-slider__icon v2-icon v2-icon--small v2-icon--couple" id="1" name="couple" onClick={this.handleClick} />
+            <i className="scale-slider__icon scale-slider__icon--couple v2-icon v2-icon--small v2-icon--couple" id="1" name="couple" onClick={this.handleClick} />
           </li>
           <li className="scale-slider__icon-holder">
-            <i className="scale-slider__icon v2-icon v2-icon--small v2-icon--family" id="2" name="family" onClick={this.handleClick} />
+            <i className="scale-slider__icon scale-slider__icon--family v2-icon v2-icon--small v2-icon--family" id="2" name="family" onClick={this.handleClick} />
           </li>
           <li className="scale-slider__icon-holder">
-            <i className="scale-slider__icon v2-icon v2-icon--small v2-icon--single-parent-family" id="3" name="singleParentFamily" onClick={this.handleClick} />
+            <i className="scale-slider__icon scale-slider__icon--single-parent-family " id="3" name="singleParentFamily" onClick={this.handleClick} />
           </li>
         </ul>
 

@@ -1,5 +1,5 @@
 @import '@nib-styles/v2-typography';
-@import '@nib-styles/v2-icons';
+@import '@nib-styles/v2-icons/dist/mixin';
 @import '@nib-styles/colors';
 
 .scale-slider {
@@ -27,6 +27,24 @@
 
 .scale-slider__icon {
   cursor: pointer;
+  font-style: normal;
+
+  &--single {
+    @include v2-icon('single', $size: 'small');
+  }
+
+  &--couple {
+    @include v2-icon('couple', $size: 'small');
+  }
+
+  &--family {
+    @include v2-icon('family', $size: 'small');
+  }
+
+  &--single-parent-family {
+    @include v2-icon('single-parent-family', $size: 'small');
+  }
+
 }
 
 // Scale Range Slider Input
