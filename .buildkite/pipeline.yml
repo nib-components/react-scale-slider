@@ -1,0 +1,6 @@
+steps:
+
+  - label: 'test'
+    command: './run-tests-in-docker.sh'
+    agents:
+      os: 'linux'

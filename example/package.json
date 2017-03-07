@@ -1,0 +1,23 @@
+{
+  "name": "@nib-components/react-scale-slider",
+  "private": true,
+  "dependencies": {
+    "@nib-components/react-scale-slider": "file:../",
+    "@nib-components/reset": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "linklocal": "^2.6.1",
+    "tradie": "^1.2.0-preview.9",
+    "tradie-plugin-copy": "^1.0.0",
+    "tradie-plugin-livereload": "^1.0.0",
+    "tradie-plugin-serve": "^1.0.1"
+  },
+  "scripts": {
+    "clean": "tradie clean",
+    "build": "tradie build",
+    "watch": "tradie build --watch",
+    "postinstall": "linklocal"
+  }
+}

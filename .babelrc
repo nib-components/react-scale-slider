@@ -1,0 +1,12 @@
+{
+  "presets": ["react"],
+  "plugins": ["transform-object-rest-spread"],
+  "env": {
+    "es-next": {
+      "presets": [["es2015", {"modules": false}]]
+    },
+    "es5": {
+      "presets": ["es2015"]
+    }
+  }
+}

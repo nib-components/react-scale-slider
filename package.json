@@ -1,47 +1,58 @@
 {
   "name": "@nib-components/react-scale-slider",
-  "version": "0.3.4",
-  "description": "A react range input for choosing your scale",
-  "main": "./dist/index.js",
-  "dependencies": {
-    "@nib-styles/colors": "^1.1.1",
-    "@nib-styles/v2-icons": "^2.7.0",
-    "@nib-styles/v2-typography": "^4.0.1",
-    "invariant": "^2.2.0",
-    "react-addons-css-transition-group": "^0.14.0 || ^15.1.0"
+  "version": "1.0.0",
+  "description": "A react-scale-slider component.",
+  "main": "./dist/es5/index.js",
+  "module": "./dist/es-next/index.js",
+  "jsnext:main": "./dist/es-next/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.nib.com.au:frontend/react-scale-slider.git"
   },
-  "devDependencies": {
-    "babel": "^5.8.29",
-    "babelify": "^6.4.0",
-    "browserify": "^12.0.0",
-    "chai": "^3.4.1",
-    "chai-jsx": "^1.0.1",
-    "eslint": "^1.10.1",
-    "eslint-config-jameslnewell": "^0.3.2",
-    "jsx-chai": "^2.0.0",
-    "mocha": "^2.3.4",
-    "react": "^15.0.0",
-    "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^0.14.0",
-    "react-testutils-query": "^0.4.3",
-    "react-testutils-render": "^0.1.2",
-    "sass-composer": "^2.0.0-beta12",
-    "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0",
-    "watchify": "^3.5.0"
+  "dependencies": {
+    "@nib-components/theme": "^1.0.0-preview.1",
+    "@nib-styles/colors": "^2.0.0-preview.3",
+    "invariant": "^2.2.0",
+    "styled-components-grid": "^1.0.0-preview.5"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0"
+    "react": "^0.14.0 || ^15.0.0",
+    "styled-components": "^2.0.0-3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "concurrently": "^2.2.0",
+    "cpx": "^1.3.2",
+    "cross-env": "^3.1.4",
+    "del-cli": "^0.2.0",
+    "eslint": "^3.3.1",
+    "eslint-config-jameslnewell": "^1.0.0-rc.3",
+    "husky": "^0.11.4",
+    "mocha": "^3.0.2",
+    "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-testutils-query": "^0.10.0",
+    "react-testutils-render": "^0.1.2",
+    "source-map-support": "^0.4.0",
+    "styled-components": "^2.0.0-3",
+    "styled-components-spacing": "^2.0.3"
   },
   "scripts": {
-    "test": "mocha --recursive --compilers jsx:babel/register --require test/boot.js",
-    "build": "babel ./index.jsx -d ./dist --source-maps",
-    "watch": "babel ./index.jsx -d ./dist --source-maps --watch",
-    "example.scripts.build": "browserify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
-    "example.scripts.watch": "watchify -v --debug -t babelify example/index.jsx -o example/index.bundled.js",
-    "example.styles.build": "sass-composer index.scss -o example/index.bundled.css",
-    "example.styles.watch": "sass-composer --watch index.scss -o example/index.bundled.css",
-    "example.build": "npm run build && npm run example.scripts.build && npm run example.styles.build",
-    "prepublish": "npm run build"
+    "clean": "del-cli -f ./dist",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "watch": "concurrently --kill-others \"npm run watch:scripts\" \"npm run watch:tests\"",
+    "build-es-next": "cross-env BABEL_ENV=es-next babel ./src --source-maps --out-dir ./dist/es-next",
+    "build-es5": "cross-env BABEL_ENV=es5 babel ./src --source-maps --out-dir ./dist/es5",
+    "build": "npm run build-es-next && npm run build-es5",
+    "watch:scripts": "npm run build-es-next  -- --watch && npm run build-es5 -- --watch",
+    "test": "mocha --require ./dist/es5/_.test.js ./dist/es5",
+    "watch:tests": "npm run test -- --watch",
+    "precommit": "npm run clean && npm run lint && npm run build && npm run test",
+    "prepublish": "npm run precommit"
   }
 }
