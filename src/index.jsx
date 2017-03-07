@@ -1,7 +1,6 @@
 import React from 'react';
-import invariant from 'invariant';
 import styled from 'styled-components';
-import {Padding} from 'styled-components-spacing';
+import {Margin, Padding, p} from 'styled-components-spacing';
 import Grid from 'styled-components-grid';
 import Theme from '@nib-components/theme';
 import colors from '@nib-styles/colors';
@@ -11,8 +10,17 @@ const Wrapper = styled.div`
 `;
 
 const IconButton = styled.button`
-  background-color: red;
+  ${p(0)}
+  background-color: ${colors.white};
+  color: ${props => props.selected ? colors.elizabeth : colors.doc};
   border: none;
+`;
+
+const Label = styled.label`
+  color: ${colors.doc};
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const options = {
@@ -31,72 +39,47 @@ export default class ScaleSlider extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
-    const index = event.target.value;
-    console.log('handleChange', event);
-    this.props.onChange(Object.keys(options)[index]);
+  handleChange(option) {
+    this.props.value = option;
   }
 
-  handleClick(event) {
-    const index = event.target.id;
-    console.log('handleClick', event);
-    this.props.onChange(Object.keys(options)[index]);
+  handleClick(option) {
+    this.props.onChange(option);
   }
 
   render() {
-    const {value, onFocus, onBlur, autoFocus, ...otherProps} = this.props;
-    const index = Object.keys(options).indexOf(value);
-
-    //throw an error if value is not a valid option
-    invariant(index !== -1, `Invalid value "${value}"`);
-
+    const {value, onFocus, onChange, onBlur, autoFocus, ...otherProps} = this.props;
     return (
       <Theme onChange={this.handleChange}>
         <Wrapper>
           <Padding all={{xs: '3', md: '4'}}>
 
-          <Grid>
-            <Grid.Unit width={1/4}>
-              <IconButton id="1" onClick={this.handleClick}>
-                <Padding all={3}>
-                  Single
-                </Padding>
-              </IconButton>
-            </Grid.Unit>
+            <Grid>
+              {Object.keys(options).map(option => {
+                const selected = option === value;
+                return (
 
-            <Grid.Unit width={1/4}>
-              <IconButton id="2" onClick={this.handleClick}>
-                <Padding all={3}>
-                  Couple
-                </Padding>
-              </IconButton>
-            </Grid.Unit>
+                <Grid.Unit width={1/Object.keys(options).length} key={option}>
+                  <IconButton
+                    onClick={this.handleClick(option)}
+                    selected={value === option}
+                    autoFocus={autoFocus && this.props.value === option}
+                  >
+                    <Padding all={3}>
+                      {option}
+                    </Padding>
+                  </IconButton>
+                </Grid.Unit>
+                )}
+              )}
+            </Grid>
 
-            <Grid.Unit width={1/4}>
-              <IconButton id="3" onClick={this.handleClick}>
-                <Padding all={3}>
-                  Family
-                </Padding>
-              </IconButton>
-            </Grid.Unit>
+            <Margin top={3}>
+              <Label htmlFor="scale">
+                {options[value]}
+              </Label>
+            </Margin>
 
-            <Grid.Unit width={1/4}>
-              <IconButton id="4" onClick={this.handleClick}>
-                <Padding all={3}>
-                  Single Parent Family
-                </Padding>
-              </IconButton>
-            </Grid.Unit>
-
-          </Grid>
-
-            <label
-              className="scale-slider__label"
-              id="label"
-              htmlFor="scale"
-            >
-              {options[Object.keys(options)[index]]}
-            </label>
           </Padding>
         </Wrapper>
       </Theme>
