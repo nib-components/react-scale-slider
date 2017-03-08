@@ -1,6 +1,7 @@
 {
   "extends": "jameslnewell/react",
   "rules": {
+    "no-confusing-arrow": 0,
     "no-unused-expressions": 0 //TODO: how do we disable this rule only for tests?
   }
 }

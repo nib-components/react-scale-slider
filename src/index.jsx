@@ -6,6 +6,7 @@ import colors from '@nib-styles/colors';
 
 const Wrapper = styled.div`
   background-color: ${colors.sneezy};
+  font-family: ${props => props.theme.fonts.copy};
   text-align: center;
 `;
 
@@ -51,7 +52,7 @@ const Label = styled.label`
   text-transform: uppercase;
 `;
 
-const Option = ({autoFocus, first, icon, image, last, selected, onClick}) => (
+const Option = ({autoFocus, first, icon, last, selected, onClick}) => (
   <IconWrapper first={first} last={last}>
     <IconButton
       onClick={onClick}
@@ -59,9 +60,7 @@ const Option = ({autoFocus, first, icon, image, last, selected, onClick}) => (
       autoFocus={autoFocus}
     >
       <Padding all={3}>
-        {icon &&
-          <Icon type={icon} size="sm"/>
-        }
+        {icon}
       </Padding>
     </IconButton>
   </IconWrapper>
@@ -104,7 +103,7 @@ export default class ScaleSlider extends React.Component {
                     autoFocus: autoFocus && selected,
                     first: index === 0,
                     last: index === React.Children.count(children) - 1,
-                    selected: selected,
+                    selected,
                     onClick: this.handleClick(child.props.value)
                   })}
                 </Grid.Unit>

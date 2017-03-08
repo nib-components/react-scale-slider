@@ -2,14 +2,6 @@ import React from 'react';
 import Theme from '@nib-components/theme';
 import ScaleSlider from '@nib-components/react-scale-slider';
 
-const options = {
-  'Single': 'Me',
-  'Couple': 'My partner and me',
-  'Family': 'My partner, our kids and me',
-  'SingleParentFamily': 'My kids and me'
-};
-
-
 class App extends React.Component {
 
   constructor(...args) {
