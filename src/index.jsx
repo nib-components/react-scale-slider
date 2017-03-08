@@ -51,6 +51,23 @@ const Label = styled.label`
   text-transform: uppercase;
 `;
 
+const Option = ({autoFocus, first, icon, image, last, selected, onClick}) => (
+  <IconWrapper first={first} last={last}>
+    <IconButton
+      onClick={onClick}
+      selected={selected}
+      autoFocus={autoFocus}
+    >
+      <Padding all={3}>
+        {icon &&
+          <Icon type={icon} size="sm"/>
+        }
+      </Padding>
+    </IconButton>
+  </IconWrapper>
+);
+
+
 export default class ScaleSlider extends React.Component {
 
   constructor(props) {
@@ -62,38 +79,42 @@ export default class ScaleSlider extends React.Component {
     return () => this.props.onChange(option);
   }
 
+  getSelectedLabel() {
+    let selected = '';
+    React.Children.forEach(this.props.children, child => {
+      if (this.props.value === child.props.value) {
+        selected = child.props.label;
+      }
+    });
+    return selected;
+  }
+
   render() {
-    const {value, options, autoFocus} = this.props;
+    const {value, children, autoFocus} = this.props;
     return (
       <Wrapper>
         <Padding all={{xs: '3', md: '4'}}>
 
           <Grid>
-            {Object.keys(options).map((option, index) => {
-              const selected = option === value;
+            {React.Children.map(children, (child, index) => {
+              const selected = value === child.props.value;
               return (
-
-                <Grid.Unit width={1 / Object.keys(options).length} key={option}>
-                  <IconWrapper first={index === 0} last={index === Object.keys(options).length - 1}>
-                    <IconButton
-                      onClick={this.handleClick(option)}
-                      selected={selected}
-                      autoFocus={autoFocus && selected}
-                    >
-                      <Padding all={3}>
-                        {option}
-                      </Padding>
-                    </IconButton>
-                  </IconWrapper>
+                <Grid.Unit width={1 / React.Children.count(children)} key={child.props.value}>
+                  {React.cloneElement(child, {
+                    autoFocus: autoFocus && selected,
+                    first: index === 0,
+                    last: index === React.Children.count(children) - 1,
+                    selected: selected,
+                    onClick: this.handleClick(child.props.value)
+                  })}
                 </Grid.Unit>
-
               );
             })}
           </Grid>
 
           <Margin top={3}>
             <Label htmlFor="scale">
-              {options[value]}
+              {this.getSelectedLabel()}
             </Label>
           </Margin>
 
@@ -111,3 +132,5 @@ ScaleSlider.propTypes = {
 ScaleSlider.defaultProps = {
   onChange: () => {/*do nothing*/}
 };
+
+ScaleSlider.Option = Option;

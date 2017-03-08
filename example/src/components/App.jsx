@@ -9,6 +9,7 @@ const options = {
   'SingleParentFamily': 'My kids and me'
 };
 
+
 class App extends React.Component {
 
   constructor(...args) {
@@ -30,9 +31,13 @@ class App extends React.Component {
       <Theme>
         <ScaleSlider
           value={this.state.scale}
-          options={options}
           onChange={this.handleScaleChange}
-        />
+        >
+          <ScaleSlider.Option value="Single" icon="single" label="Me"/>
+          <ScaleSlider.Option value="Couple" icon="couple" label="My partner and me"/>
+          <ScaleSlider.Option value="Family" icon="family" label="My partner, our kids and me"/>
+          <ScaleSlider.Option value="SingleParentFamily" icon="single-parent-family" label="My kids and me"/>
+        </ScaleSlider>
       </Theme>
     );
   }
