@@ -24,6 +24,10 @@ import ScaleSlider from '@nib-components/react-scale-slider';
 
 ## Change log
 
+### 1.0.0
+
+- break: bump to breaking version change of `v2-icons`.
+
 ### 0.3.4
 
 - fix: use icon mixins to save including the full v2-icons css
