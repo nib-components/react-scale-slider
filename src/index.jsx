@@ -65,6 +65,7 @@ const Option = ({autoFocus, first, icon, last, selected, onClick}) => (
       onClick={onClick}
       selected={selected}
       autoFocus={autoFocus}
+      type="button"
     >
       <Padding all={{xs: 2, sm: 3}}>
         {icon
