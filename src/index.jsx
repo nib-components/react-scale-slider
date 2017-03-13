@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {Margin, Padding, p} from 'styled-components-spacing';
 import Grid from 'styled-components-grid';
-import colors from '@nib-styles/colors';
+import colors from '@nib-components/colors';
+import Icon from '@nib-components/icon';
 
 const Wrapper = styled.div`
   background-color: ${colors.sneezy};
@@ -39,10 +40,16 @@ const IconWrapper = styled.div`
 const IconButton = styled.button`
   ${p(0)}
   background-color: ${colors.sneezy};
-  color: ${props => props.selected ? colors.elizabeth : colors.doc};
+  color: ${props => props.selected ? colors.elizabeth : colors.grumpy};
   border: none;
   position: relative;
   z-index: 1;
+  cursor: pointer;
+  transition: color .1s ease-in;
+  
+  &:hover {
+    color: ${props => props.selected ? colors.elizabeth : colors.doc};
+  }
 `;
 
 const Label = styled.label`
@@ -59,8 +66,10 @@ const Option = ({autoFocus, first, icon, last, selected, onClick}) => (
       selected={selected}
       autoFocus={autoFocus}
     >
-      <Padding all={3}>
-        {icon}
+      <Padding all={{xs: 2, sm: 3}}>
+        {icon
+          && <Icon type={icon} size="sm"/>
+        }
       </Padding>
     </IconButton>
   </IconWrapper>
@@ -89,10 +98,10 @@ export default class ScaleSlider extends React.Component {
   }
 
   render() {
-    const {value, children, autoFocus} = this.props;
+    const {value, children, autoFocus, otherProps} = this.props;
     return (
-      <Wrapper>
-        <Padding all={{xs: '3', md: '4'}}>
+      <Wrapper {...otherProps}>
+        <Padding vertical={{xs: '3'}} horizontal={{xs: '2', md: '3'}}>
 
           <Grid>
             {React.Children.map(children, (child, index) => {
@@ -111,7 +120,7 @@ export default class ScaleSlider extends React.Component {
             })}
           </Grid>
 
-          <Margin top={3}>
+          <Margin vertical={2}>
             <Label htmlFor="scale">
               {this.getSelectedLabel()}
             </Label>

@@ -10,7 +10,8 @@
     "url": "git@git.nib.com.au:frontend/react-scale-slider.git"
   },
   "dependencies": {
-    "@nib-styles/colors": "^2.0.0-preview.3",
+    "@nib-components/colors": "^2.0.0",
+    "@nib-components/icon": "^2.0.0-preview.1",
     "styled-components-grid": "^1.0.0-preview.5"
   },
   "peerDependencies": {
@@ -30,6 +31,7 @@
     "eslint": "^3.3.1",
     "eslint-config-jameslnewell": "^1.0.0-rc.3",
     "husky": "^0.11.4",
+    "ignore-styles": "^5.0.1",
     "mocha": "^3.0.2",
     "react": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
